@@ -1,0 +1,135 @@
+/***
+ *  Simple Pure CSS Star Rating Widget Bootstrap 4 
+ * 
+ *  www.TheMastercut.co
+ *  
+ ***/
+
+ @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+ /* Styling h1 and links
+ ––––––––––––––––––––––––––––––––– */
+ h1[alt="Simple"] {color: white;}
+ 
+ .starrating > input {display: none;}  /* Remove radio buttons */
+ 
+ .starrating > label:before { 
+   content: "\f005"; /* Star */
+   margin: 2px;
+   font-size: 2em;
+   font-family: FontAwesome;
+   display: inline-block; 
+ }
+ 
+ .starrating > label
+ {
+   color: #222222; /* Start color when not clicked */
+ }
+ 
+ .starrating > input:checked ~ label
+ { color: #ffca08 ; } /* Set yellow color when star checked */
+ 
+ .starrating > input:hover ~ label
+ { color: #ffca08 ;  } /* Set yellow color when star hover */
+
+/* My Styles */
+
+.card-body{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div.row .card-header:hover, div.row .card-body:hover {
+  cursor: pointer;
+}
+
+div.row a{
+  text-decoration: none;
+}
+
+.row a.block{
+  display: block;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.row form.delete button{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  padding: 0px;
+}
+
+.row form.edit button{
+  width: 70px;
+  height: 30px;
+  padding: 0px;
+  opacity: 0.9;
+}
+
+.row form{
+  position: absolute;
+  z-index: 1;
+}
+
+.row form.delete{
+  right: -10px;
+  top: -10px;
+}
+
+.row form.edit{
+  right: 5px;
+  bottom: 5px;
+}
+.card{
+  height: 15rem;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.card-header{
+  min-height: 49px;
+  max-height: 49px;
+}
+
+.card-body{
+  background-size: cover;
+  width: 228px;
+  height: 189px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1199px) {
+  .card-body{
+    width: 266px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .card-body{
+    width: 311px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card-body{
+    width: 506px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .card-body{
+    width: 523px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-body{
+    width: auto;
+  }
+}
