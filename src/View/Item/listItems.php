@@ -1,5 +1,6 @@
 <?php $_SESSION['title'] = "Moje filmy"; ?>
 <?php $_SESSION['css']  = 'item' ?>
+<?php $_SESSION['js']  = 'manageSettingView' ?>
 <?php require_once __DIR__ . '/../header.php'; ?>
 
 <div class="px-4 py-3">
@@ -40,16 +41,22 @@
     
                         </div>
                       
-                        <form action = "./index.php" method="get" class = "delete">
-                            <button type="submit" class="btn btn-danger" name = "action" value = "deleteItem">X</button>
-                            <input type = "hidden" name = "id" value =' . $item->getId() . '>
+                        <form class = "settigns">
+                            <button type = "button" class = "managePanel"></button>
                         </form>
-    
-                        <form action = "./index.php" method="get" class = "edit">
-                            <button type="submit" class="btn btn-success" name = "action" value = "editItem">Edytuj</button>
-                            <input type = "hidden" name = "id" value =' . $item->getId() . '>
-                        </form>
-    
+
+                        <div class = "manageView none">
+                            <form action = "./index.php" method="get" class = "delete">
+                                <button type="submit" class="btn btn-danger" name = "action" value = "deleteItem">X</button>
+                                <input type = "hidden" name = "id" value =' . $item->getId() . '>
+                            </form>
+        
+                            <form action = "./index.php" method="get" class = "edit">
+                                <button type="submit" class="btn btn-success" name = "action" value = "editItem">Edytuj</button>
+                                <input type = "hidden" name = "id" value =' . $item->getId() . '>
+                            </form>
+                        </div>
+
                         <a href="index.php?action=showDetailsOfItem&id=' . $item->getId() . '" class = "fullSize">
                             <div class="card-body" style="background-image: url(' . $item->getImage_src() . ');" >
     

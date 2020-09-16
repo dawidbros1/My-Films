@@ -67,7 +67,7 @@ div.row a{
 }
 
 .row form.edit{
-  right: 5px;
+  right: 40px;
   bottom: 5px;
 }
 
@@ -121,4 +121,22 @@ html{
   .card{
     --card-width: 205px;
   }
+}
+
+.managePanel{
+  width: 100%;
+  height: 100%;
+  background-image: url('./../images/settings.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.settigns{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  display: block;
 }
