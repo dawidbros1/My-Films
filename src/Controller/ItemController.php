@@ -49,7 +49,8 @@ class ItemController
             $id = $_REQUEST['id'];
 
             if (\App\Repository\ItemRepository::checkIfItIsMyItemById($id)) { // Czy ten item należy do mnie
-                header('Location: index.php?action=listItems');
+                $type = \App\Repository\ItemRepository::getItemById($id)->getType();
+                header('Location: index.php?action=listItems&type=' . $type . '');
                 \App\Repository\ItemRepository::deleteItemById($id);
                 exit();
             }

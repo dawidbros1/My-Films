@@ -56,7 +56,7 @@ if (
     //! Validacja danych - KONIEC
 
     if (!$error) {
-        header('Location: index.php?action=listItems');
+        header('Location: index.php?action=listItems&type=' . $type . '');
 
         global $currentUser;
 
