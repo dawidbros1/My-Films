@@ -25,6 +25,18 @@
         <!-- == () == -->
 
         <div class="form-group">
+            <label>Typ filmu</label>
+            <select class="form-control" name="type">
+                <option value="film">Film</option>
+                <option value="serial">Serial</option>
+            </select>
+        </div>
+
+        <?php showErrorSessionValue('error:item:type:strlen') ?>
+
+        <!-- == () == -->
+
+        <div class="form-group">
             <label>Opis</label>
             <textarea class="form-control" rows="20" name="desctiption"><?php echo showSessionValue('memory:item:desctiption:value'); ?></textarea>
         </div>

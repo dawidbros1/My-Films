@@ -20,6 +20,7 @@ class ItemRepository extends Model
                 $item->setDescription($simpleDataItem['description']);
                 $item->setImage_src($simpleDataItem['image_src']);
                 $item->setAuthor_id($simpleDataItem['author_id']);
+                $item->setType($simpleDataItem['type']);
                 $items[$key] = $item;
             }
 
@@ -29,15 +30,16 @@ class ItemRepository extends Model
         return null;
     }
 
-    public static function getAllItemsForCurrentUserByRating($rate)
+    public static function getAllItemsForCurrentUserByRatingAndType($rate, $type)
     {
         global $currentUser;
 
         $db = self::getConnection();
-        $sql = "SELECT * FROM items WHERE author_id = :author_id AND rate = :rate";
+        $sql = "SELECT * FROM items WHERE author_id = :author_id AND rate = :rate AND type =:type";
         $statement = $db->prepare($sql);
         $statement->bindValue(':author_id', $currentUser->getId(), \PDO::PARAM_INT);
         $statement->bindValue(':rate', $rate, \PDO::PARAM_INT);
+        $statement->bindValue(':type', $type, \PDO::PARAM_STR);
         $statement->execute();
         $result = $statement->fetchAll();
         $items = self::createItemsByData($result);
@@ -94,11 +96,12 @@ class ItemRepository extends Model
                 rate = :rate,
                 description = :description,
                 image_src = :image_src,
-                author_id = :author_id
+                author_id = :author_id,
+                type = :type
                 WHERE id = :id');
             $statement->bindValue(':id', $item->getId(), \PDO::PARAM_INT);
         } else {
-            $statement = $db->prepare('INSERT INTO items VALUES (NULL,:title,:rate,:description,:image_src, :author_id)');
+            $statement = $db->prepare('INSERT INTO items VALUES (NULL,:title,:rate,:description,:image_src, :author_id, :type)');
         }
 
         $statement->bindValue(':title', $item->getTitle(), \PDO::PARAM_STR);
@@ -106,6 +109,7 @@ class ItemRepository extends Model
         $statement->bindValue(':description', $item->getDescription(), \PDO::PARAM_STR);
         $statement->bindValue(':image_src', $item->getImage_src(), \PDO::PARAM_STR);
         $statement->bindValue(':author_id', $item->getAuthor_id(), \PDO::PARAM_INT);
+        $statement->bindValue(':type', $item->getType(), \PDO::PARAM_STR);
 
         $statement->execute();
     }

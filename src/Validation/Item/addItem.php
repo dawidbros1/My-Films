@@ -5,6 +5,7 @@ if (
     && isset($_REQUEST['rate']) && !empty($_REQUEST['rate'])
     && isset($_REQUEST['desctiption']) && !empty($_REQUEST['desctiption'])
     && isset($_REQUEST['image_src']) && !empty($_REQUEST['image_src'])
+    && isset($_REQUEST['type']) && !empty($_REQUEST['type'])
 ) {
     global $currentUser;
     $error = false;
@@ -13,6 +14,7 @@ if (
     $rate = $_REQUEST['rate'];
     $desctiption = $_REQUEST['desctiption'];
     $image_src = $_REQUEST['image_src'];
+    $type = $_REQUEST['type'];
 
     //! Validacja danych - START
     // Sprawdzenie długości znaków - START
@@ -30,6 +32,11 @@ if (
     if (strlen($desctiption) > 10000) {
         $error = true;
         $_SESSION['error:item:desctiption:strlen'] = 'Opis filmy nie może być dłuższy niż 10000 znaków';
+    }
+
+    if ($type != "film" && $type != "serial") {
+        $error = true;
+        $_SESSION['error:item:type:strlen'] = 'Nieprawidłowy typ filmu';
     }
 
     $rateError = true;
@@ -59,6 +66,7 @@ if (
         $item->setDescription($desctiption);
         $item->setImage_src($image_src);
         $item->setAuthor_id($currentUser->getId());
+        $item->setType($type);
 
         \App\Repository\ItemRepository::save($item);
         $_SESSION['info'] = "Filmy został dodany";
@@ -68,5 +76,6 @@ if (
         $_SESSION['memory:item:rate:value'] = $rate;
         $_SESSION['memory:item:desctiption:value'] = $desctiption;
         $_SESSION['memory:item:image_src:value'] = $image_src;
+        $_SESSION['memory:item:type:value'] = $type;
     }
 }

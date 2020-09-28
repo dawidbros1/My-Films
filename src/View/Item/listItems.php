@@ -4,7 +4,8 @@
 <?php require_once __DIR__ . '/../header.php'; ?>
 
 <div class="px-4 py-3">
-    <h1>Moje filmy</h1>
+    <h1>Moje <?php if ($type == "film") echo "filmy";
+                else echo "seriale"; ?></h1>
 
     <?php showCustomSessionValue('info', 'green', '28', 'center') ?>
 
@@ -13,7 +14,7 @@
         <?php
 
         for ($i = 10; $i > 0; $i--) {
-            $items = \App\Repository\ItemRepository::getAllItemsForCurrentUserByRating($i);
+            $items = \App\Repository\ItemRepository::getAllItemsForCurrentUserByRatingAndType($i, $type);
 
             if ($items != NULL) {
                 echo '<row class = "col-12">';

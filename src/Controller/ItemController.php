@@ -14,7 +14,16 @@ class ItemController
     public static function listItemsAction()
     {
         \App\Controller\UserController::requireLogin();
-        require_once __DIR__ . '/../View/Item/listItems.php';
+
+        if (isset($_REQUEST['type'])) {
+            $type = $_REQUEST['type'];
+
+            if ($type == 'film' || $type = "serial") {
+                require_once __DIR__ . '/../View/Item/listItems.php';
+            } else {
+                // Błąd
+            }
+        }
     }
 
 

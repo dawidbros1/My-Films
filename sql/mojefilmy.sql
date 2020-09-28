@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 27 Sie 2020, 14:51
+-- Czas generowania: 28 Wrz 2020, 11:48
 -- Wersja serwera: 10.1.30-MariaDB
 -- Wersja PHP: 7.2.2
 
@@ -34,7 +34,8 @@ CREATE TABLE `items` (
   `rate` int(11) NOT NULL,
   `description` varchar(10000) COLLATE utf8_polish_ci NOT NULL,
   `image_src` varchar(255) COLLATE utf8_polish_ci NOT NULL,
-  `author_id` int(11) NOT NULL
+  `author_id` int(11) NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -75,7 +76,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`

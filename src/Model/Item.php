@@ -10,6 +10,7 @@ class Item
     private $description;
     private $image_src;
     private $author_id;
+    private $type;
 
     /**
      * Get the value of id
@@ -127,6 +128,26 @@ class Item
     public function setAuthor_id($author_id)
     {
         $this->author_id = $author_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of type
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of type
+     *
+     * @return  self
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
 
         return $this;
     }

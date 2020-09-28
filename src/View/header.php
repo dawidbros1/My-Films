@@ -49,7 +49,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.php?action=listItems">Lista filmów</a>
+                            <a class="nav-link" href="./index.php?action=listItems&type=film">Moje filmy</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.php?action=listItems&type=serial">Moje seriale</a>
                         </li>
 
                         <li class="nav-item dropdown">
