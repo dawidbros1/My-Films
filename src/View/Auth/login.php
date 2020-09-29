@@ -4,7 +4,7 @@
 <div class="px-4 py-3">
     <h1>Logowanie</h1>
 
-    <?php showCustomSessionValue('register:new:account:info', 'green', '28', 'center') ?>
+    <?php showCustomSessionValue('register:new:account:info', 'green', '22', 'center') ?>
 
     <form action="./index.php?action=login" method="post">
 

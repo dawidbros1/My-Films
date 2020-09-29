@@ -1,52 +1,15 @@
-/***
- *  Simple Pure CSS Star Rating Widget Bootstrap 4 
- * 
- *  www.TheMastercut.co
- *  
- ***/
-
- @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
- /* Styling h1 and links
- ––––––––––––––––––––––––––––––––– */
- h1[alt="Simple"] {color: white;}
- 
- .starrating > input {display: none;}  /* Remove radio buttons */
- 
- .starrating > label:before { 
-   content: "\f005"; /* Star */
-   margin: 2px;
-   font-size: 2em;
-   font-family: FontAwesome;
-   display: inline-block; 
- }
- 
- .starrating > label
- {
-   color: #222222; /* Start color when not clicked */
- }
- 
- .starrating > input:checked ~ label
- { color: #ffca08 ; } /* Set yellow color when star checked */
- 
- .starrating > input:hover ~ label
- { color: #ffca08 ;  } /* Set yellow color when star hover */
-
-/* My Styles */
-
 div.row .card-header:hover, div.row .card-body:hover {
   cursor: pointer;
 }
-
-div.row a{
-  text-decoration: none;
-}
-
 .row form.delete button{
   width: 30px;
   height: 30px;
   border-radius: 100%;
   padding: 0px;
+}
+
+div.row a{
+  text-decoration: none;
 }
 
 .row form.edit button{
@@ -71,15 +34,60 @@ div.row a{
   bottom: 5px;
 }
 
-.edit-details{
+.categoryId{
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 3px; 
+  top: 26px;  
+  color: yellow;
+  z-index: 2;
+  font-size: 18px;
+}
+
+#favoriteCategoryForm{
+  position: absolute;
+  bottom: 15px;
+  left: 5%;
+  width: 100%;
+}
+
+#favoriteCategoryInput{
+  width: 50%;
+  height: 30px;
+}
+
+#favoriteCategoryButton{
+  width: 40%;
+  height: 30px;
+  font-size: 15px;
+}
+
+.lock{
+  background-image: url('./../images/lock.png');
 }
 
 .fullSize{
   width: 100%;
   height: 100%;
+}
+
+/* Magene Panel && Settings */
+
+.managePanel{
+  width: 100%;
+  height: 100%;
+  background-image: url('./../images/settings.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.settigns{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  display: block;
 }
 
 /* Item size */
@@ -104,8 +112,9 @@ html{
 
 .card{
   width: var(--card-width);
-  border: 1px solid black;
-  box-sizing: border-box;
+  border-radius: 0;
+  box-sizing: border-box; 
+  border: none;
 }
 
 .card-body{
@@ -121,22 +130,4 @@ html{
   .card{
     --card-width: 205px;
   }
-}
-
-.managePanel{
-  width: 100%;
-  height: 100%;
-  background-image: url('./../images/settings.png');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.settigns{
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  display: block;
 }

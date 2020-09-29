@@ -12,7 +12,7 @@ $item = \App\Repository\ItemRepository::getItemById($id);
 
     <form action="./index.php" method="get" class="edit">
         <button type="submit" class="btn btn-success edit-details" name="action" value="editItem">Edytuj</button>
-        <input type="hidden" name="id" value=' <?php echo $item->getId() ?> '>
+        <input type="hidden" name="id" value='<?php echo $item->getId() ?>'>
     </form>
 
     <div class="starrating risingstar d-flex justify-content-center flex-row-reverse">

@@ -15,17 +15,14 @@ class ItemController
     {
         \App\Controller\UserController::requireLogin();
 
-        if (isset($_REQUEST['type'])) {
+        if (isset($_REQUEST['type']) && ($_REQUEST['type'] == 'film' || $_REQUEST['type'] == "serial")) {
             $type = $_REQUEST['type'];
-
-            if ($type == 'film' || $type = "serial") {
-                require_once __DIR__ . '/../View/Item/listItems.php';
-            } else {
-                // Błąd
-            }
+            require_once __DIR__ . '/../View/Item/listItems.php';
+        } else {
+            \App\Controller\ErrorController::sendError(4); // Niepoprawny adres strony
+            exit();
         }
     }
-
 
     public static function editItemAction()
     {
@@ -37,6 +34,9 @@ class ItemController
             if (\App\Repository\ItemRepository::checkIfItIsMyItemById($id)) { // Czy ten item należy do mnie
                 require_once __DIR__ . '/../../src/Validation/Item/editItem.php'; // Walidacja wysłanego formularza - Wysłanie poprawnego
                 require_once __DIR__ . '/../View/Item/editItem.php';   // Nie wysłano formularza lub są w nim błędy
+            } else {
+                \App\Controller\ErrorController::sendError(2); // Brak uprawnień
+                exit();
             }
         }
     }
@@ -53,7 +53,13 @@ class ItemController
                 header('Location: index.php?action=listItems&type=' . $type . '');
                 \App\Repository\ItemRepository::deleteItemById($id);
                 exit();
+            } else {
+                \App\Controller\ErrorController::sendError(2); // Brak uprawnień
+                exit();
             }
+        } else {
+            \App\Controller\ErrorController::sendError(4); // Niepoprawny adres strony
+            exit();
         }
     }
 
@@ -67,8 +73,13 @@ class ItemController
             if (\App\Repository\ItemRepository::checkIfItIsMyItemById($id)) { // Czy ten item należy do mnie
                 require_once __DIR__ . '/../View/Item/showDetailsOfItem.php';
                 exit();
+            } else {
+                \App\Controller\ErrorController::sendError(2); // Brak uprawnień
+                exit();
             }
+        } else {
+            \App\Controller\ErrorController::sendError(4); // Niepoprawny adres strony
+            exit();
         }
-        var_dump("1111");
     }
 }

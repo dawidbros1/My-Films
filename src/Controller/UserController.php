@@ -7,7 +7,7 @@ class UserController
     public static function requireLogin()
     {
         if (!self::checkIfUserIsLoggedIn()) {
-            header("Location: index.php?action=login");
+            \App\Controller\ErrorController::sendError(0); // Dana strona wymaga logowania
             exit();
         }
     }
