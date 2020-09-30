@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 28 Wrz 2020, 11:48
+-- Czas generowania: 30 Wrz 2020, 11:07
 -- Wersja serwera: 10.1.30-MariaDB
 -- Wersja PHP: 7.2.2
 
@@ -76,7 +76,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
