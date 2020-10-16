@@ -35,7 +35,7 @@
 
                 foreach ($items as $item) {
                     echo '
-                    <div class="col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="col col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2">
                         <div class="card text-white bg-primary mt-1 mb-2">
     
                         <div class="card-header text-white"> ' . $item->getTitle() . ' </br>    

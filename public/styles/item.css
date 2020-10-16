@@ -161,8 +161,31 @@ html{
   background-repeat: no-repeat;
 }
 
+@media screen and (max-width: 1500px) {
+  .card{
+    height: 170px;
+    --card-width: 170px;
+  }
+}
+
 @media screen and (max-width: 1199px) {
   .card{
-    --card-width: 205px;
+    height: 150px;
+    --card-width: 150px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .card{
+    height: auto; 
+    --card-width: 150px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .col{
+    -ms-flex:0 0 50%;
+    flex:0 0 50%;
+    max-width:50%;
   }
 }
