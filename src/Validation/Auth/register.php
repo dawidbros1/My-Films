@@ -30,7 +30,7 @@ if ( // Czy jest wysłany formularz
         $localPasswordError = true;
     }
 
-    if (strlen($password) < 5 || strlen($password) > 16) {
+    if (!checkIfLengthOfStringIsBetweenNumbers($password, 4, 17)) {
         $_SESSION['error:register:password:length'] = 'Hasło musi zawierać od 5 do 16 znaków';
         $error = true;
         $localPasswordError = true;
@@ -38,7 +38,7 @@ if ( // Czy jest wysłany formularz
 
     if (!$localPasswordError) {
         $_SESSION['register:password:value'] = $password;
-        $_SESSION['register:confirm_password:value'] = $password;
+        $_SESSION['register:confirm_password:value'] = $confirm_password;
     }
 
     if (!(\App\Repository\UserRepository::checkUniqueEmail($email))) {
@@ -48,8 +48,8 @@ if ( // Czy jest wysłany formularz
         $_SESSION['register:email:value'] = $email;
     }
 
-    if (!(filter_var($email, FILTER_VALIDATE_EMAIL))) {
-        $_SESSION['error:register:email:validate'] = 'Niepoprawny adres email';
+    if (!validateEmail($email)) {
+        $_SESSION['error:register:email:validate'] = 'Niepoprawny adres email. Upewnij się, że email nie posiada znaków specjalnych oraz nie rozpoczyna się od liczby';
         $error = true;
     }
 

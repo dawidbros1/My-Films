@@ -3,7 +3,7 @@
 
 <div class="px-4 py-3">
     <h1>Zmiana hasła</h1>
-    <?php showCustomSessionValue('info', 'green', '28', 'center') ?>
+    <?php showSessionActionValueWithColor('info', 'green') ?>
     <form action="./index.php?action=changePassword" method="post">
 
         <div class="form-group">

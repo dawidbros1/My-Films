@@ -136,6 +136,10 @@ html{
   width: 100%;
 }
 
+.col > .card{
+  width: 100%;
+}
+
 .card-header{ 
   /* Const */
   min-height: 30px;
@@ -187,5 +191,25 @@ html{
     -ms-flex:0 0 50%;
     flex:0 0 50%;
     max-width:50%;
+  }
+}
+
+.new-item{
+  background-image: url('./../images/plus.png');
+}
+
+@media screen and (min-width: 1200px) {
+  .col{
+    -ms-flex:0 0 16.66%;
+    flex:0 0 16.66%;
+    max-width:16.66%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .col{
+    -ms-flex:0 0 11.1%;
+    flex:0 0 11.1%;
+    max-width:11.1%;
   }
 }

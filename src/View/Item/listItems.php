@@ -7,16 +7,21 @@
     <h1>Moje <?php if ($type == "film") echo "filmy";
                 else echo "seriale"; ?></h1>
 
-    <?php showCustomSessionValue('info', 'green', '28', 'center') ?>
+    <?php showSessionActionValueWithColor('info', 'green') ?>
 
     <div class="row">
 
         <?php
 
+        $empty = true;
+
         for ($i = 10; $i > 0; $i--) {
             $items = \App\Repository\ItemRepository::getAllItemsForCurrentUserByRatingAndType($i, $type);
 
             if ($items != NULL) {
+
+                $empty = false;
+
                 echo '<row class = "col-12">';
                 echo '<div class="starrating risingstar d-flex justify-content-center flex-row-reverse">';
 
@@ -35,7 +40,7 @@
 
                 foreach ($items as $item) {
                     echo '
-                    <div class="col col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2">
+                    <div class="col col-4 col-sm-4 col-md-3 col-lg-2 col-xl-1">
                         <div class="card text-white bg-primary mt-1 mb-2">
     
                         <div class="card-header text-white"> ' . $item->getTitle() . ' </br>    
@@ -69,6 +74,10 @@
                     ';
                 }
             }
+        }
+
+        if ($empty == true) {
+            echo '<div class = "col-12 text-center"> Tu nic nie ma </div>';
         }
 
         ?>

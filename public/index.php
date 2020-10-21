@@ -38,6 +38,15 @@ if (isset($_REQUEST['action'])) {
                 break;
             }
 
+        case 'forgotPassword': {
+                \App\Controller\UserController::forgotPasswordAction();
+                break;
+            }
+
+        case 'resetPassword': {
+                \App\Controller\UserController::resetPasswordAction();
+                break;
+            }
             // ==== Items ==== //
 
         case 'addItem': {

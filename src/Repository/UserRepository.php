@@ -53,6 +53,19 @@ class UserRepository extends \App\Model\Model
         return $user[0];
     }
 
+    public static function getUserByEmail($email)
+    {
+        $db = self::getConnection();
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $statement = $db->prepare($sql);
+        $statement->bindValue(':email', $email, \PDO::PARAM_STR);
+        $statement->execute();
+        $result = $statement->fetchAll();
+
+        $user = self::createUsersByData($result);
+        return $user[0];
+    }
+
     public static function checkUniqueEmail($email)
     {
         $db = self::getConnection();

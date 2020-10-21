@@ -1,16 +1,22 @@
 body{
-  background-color: rgb(155, 153, 153);
+  height: 100%;
 }
 
-div.container{
-  background-color: rgb(218, 218, 218);
+div.container-fluid{
+  background-color: rgb(252, 252, 252);
   padding: 0;
+  height: 100vh;
 }
 
 .error{
   color: red;
   margin-top: -15px;
   font-size: 14px;
+}
+
+.all{
+  margin-bottom: 50px;
+  box-sizing: border-box;
 }
 
 .green{
@@ -69,3 +75,46 @@ h1{
   box-sizing: border-box;
   width: 95%;
 }
+
+footer a {
+  color: white;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.feedback-size {
+  font-size: 18px;
+} 
+
+@media screen and (min-width: 500px) {
+  .feedback-size {
+    font-size: 22px;  
+  } 
+}
+
+ @media screen and (min-width: 768px) {
+  .feedback-size {
+    font-size: 25px;
+  }
+} 
+
+@media screen and (min-width: 992px) {
+  .feedback-size {
+    font-size: 30px;
+  }
+} 
+
+@media screen and (min-width: 1200px) {
+  .feedback-size {
+    font-size: 35px;
+  }
+} 

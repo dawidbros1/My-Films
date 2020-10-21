@@ -24,13 +24,13 @@
     <title>
         <?php
         if (isset($_SESSION['title'])) showSessionValue('title');
-        else echo "Nazwa systemu";
+        else echo "Strona główna";
         ?>
     </title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
             <a class="navbar-brand" href="./index.php?action=welcome">Start</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,3 +83,5 @@
                 </ul>
             </div>
         </nav>
+
+        <div class="all">
