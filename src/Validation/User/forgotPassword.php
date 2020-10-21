@@ -16,7 +16,7 @@ if (isset($_REQUEST['email']) && !empty($_REQUEST['email'])) {
         // Wysłanie wiadomości - START
         $link = 'http://localhost/My-Films/public/index.php?action=resetPassword&email=' . $to_email . '&key=' . $key;
         $now = date('Y-m-d H:i:s');
-        $subject = "[MojeZakładki] Reset hasła";
+        $subject = "[MojeFilmy] Reset hasła";
         $message = '
         <html>
             <head>
@@ -29,7 +29,7 @@ if (isset($_REQUEST['email']) && !empty($_REQUEST['email'])) {
                 <b>Jeżeli to nie ty wysłałeś prośbę o reset hasła, prosimy o niekliknięcie w link, gdyż to spowoduje zresetowanie twojego hasła. Prosimy również o usunięcie tej wiadomości.</b><br><br>
                 Prośba o reset hasła została wysłana  ' . $now . '. <br><br>
                 Pozdrowienia, <br>
-                MojeZakładki 
+                MojeFilmy 
             </body>
         </html>
         ';

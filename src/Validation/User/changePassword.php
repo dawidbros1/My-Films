@@ -4,7 +4,7 @@ if (
     isset($_REQUEST['password_old']) && !empty($_REQUEST['password_old']) &&
     isset($_REQUEST['password_new']) && !empty($_REQUEST['password_new']) &&
     isset($_REQUEST['password_confirm_new']) && !empty($_REQUEST['password_confirm_new'])
-) { // Czy jest wysłany formularzs
+) { // Czy jest wysłany formularz
     global $currentUser;
 
     $oldPassword = $_REQUEST['password_old'];
@@ -24,7 +24,7 @@ if (
         $error = true;
     }
 
-    if (strlen($newPassword) < 5 || strlen($newPassword) > 16) {
+    if (!checkIfLengthOfStringIsBetweenNumbers($newPassword, 4, 17)) {
         $_SESSION['error:changePassword:password:length'] = 'Hasło musi zawierać od 5 do 16 znaków';
         $error = true;
     }
